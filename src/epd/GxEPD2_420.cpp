@@ -24,6 +24,11 @@ void GxEPD2_420::clearScreen(uint8_t value)
   writeScreenBuffer(value);
 }
 
+void GxEPD2_420::spiAAA(SPIClass spi)
+{
+  _setSPI(spi);
+}
+
 void GxEPD2_420::writeScreenBuffer(uint8_t value)
 {
   _initial_write = false; // initial full screen buffer clean done

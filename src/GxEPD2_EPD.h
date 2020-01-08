@@ -89,6 +89,7 @@ class GxEPD2_EPD
     void _reset();
     void _waitWhileBusy(const char* comment = 0, uint16_t busy_time = 5000);
     void _writeCommand(uint8_t c);
+    void _setSPI(SPIClass spi);
     void _writeData(uint8_t d);
     void _writeData(const uint8_t* data, uint16_t n);
     void _writeDataPGM(const uint8_t* data, uint16_t n, int16_t fill_with_zeroes = 0);
@@ -100,6 +101,7 @@ class GxEPD2_EPD
     uint32_t _busy_timeout;
     bool _diag_enabled, _pulldown_rst_mode;
     SPISettings _spi_settings;
+    SPIClass _spi;
     bool _initial_write, _initial_refresh; 
     bool _power_is_on, _using_partial_mode, _hibernating;
 };
